@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+  --border-color: #e3e5e4;
+  --background-color: #c3c7ca;
+  --text-color: #34444f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+.draggable-list {
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  /* moves to the left */
+  padding: 0;
+  /* removes li dots */
+  list-style-type: none;
+}
+
+/* this indicates each li data */
+.draggable-list li {
+  /* inside list box */
+  background-color: #fff;
+  display: flex;
+  flex: 1;
+}
+
+.draggable-list .number {
+  background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  height: 60px;
+  width: 60px;
+}
+
+/* we have specifically given this class in script.js*/
+.draggable {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  flex: 1;
+  padding: 15px;
+}
+
+/* to the person you are trying to drag that person data will become this  */
+.draggable-list li.over .draggable {
+  background-color: #eaeaea;
+}
+
+.draggable-list .person-name {
+  margin: 0 20px 0 0;
+}
+
+/* if we the sorting data is correct then the list displays green on person name */
+.draggable-list li.right .person-name {
+  color: #3ae374;
+}
+
+/* if we the sorting data is wrong then the list displays red on person name */
+.draggable-list li.wrong .person-name {
+  color: #ff3838;
+}
+
+/* except for last data li we are setting the border bottom */
+.draggable-list li:not(:last-of-type) {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.check-btn {
+  background-color: var(--background-color);
+  border: none;
+  color: var(--text-color);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.check-btn:active {
+  transform: scale(0.98);
+}
+
+.check-btn:focus {
+  outline: none;
+}
